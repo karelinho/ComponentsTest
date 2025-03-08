@@ -4,7 +4,12 @@
             <input type="text" />
         </div>
         <div>
-            <ng-content></ng-content>
+            @for (item of items(); track item.code) {
+                <div class="dropdown-item" (click)="onDropdownItemClick(item)">
+                    <input #dropdownCheckbox type="checkbox" [checked]="item.selected" />
+                    {{ item.text }}
+                </div>
+            }
         </div>
     </div>
 </ng-template>

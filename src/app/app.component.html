@@ -1,17 +1,7 @@
 <div class="wrapper">
-
-  <h1>Dropdown Component</h1>
-
-  <input #input [dropdownTriggerFor]="dropdown" [value]="dropdownInputValue" />
-
-  <my-dropdown #dropdown>
-      @for (item of dropdownItems; track item.code) {
-          <div class="dropdown-item" (click)="onDropdownItemClick(item); dropdownCheckbox.checked = !dropdownCheckbox.checked;">
-              <input #dropdownCheckbox type="checkbox" />
-              {{ item.text }}
-          </div>
-      }
-  </my-dropdown>
+    <h1>Dropdown Component</h1>
+    <input #input [dropdownTriggerFor]="dropdown" />
+    <my-dropdown #dropdown [items]="dropdownItems" (select)="input.value = $event" />
 </div>
 
 <router-outlet />

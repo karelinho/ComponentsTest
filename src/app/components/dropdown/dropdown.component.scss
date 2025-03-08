@@ -17,3 +17,16 @@
     flex-direction: row;
     flex-grow: 1;
 }
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+  
+.dropdown-item:hover {
+    background-color: #f3f4f5;
+}
