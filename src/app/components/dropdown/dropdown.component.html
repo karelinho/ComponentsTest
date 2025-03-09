@@ -1,12 +1,10 @@
 <ng-template>
     <div class="dropdown-content">
-        <div class="dropdown-search">
-            <input type="text" />
-        </div>
+        <input type="text" [formControl]="filter" />
         <div>
-            @for (item of items(); track item.code) {
+            @for (item of filteredItems(); track item.code) {
                 <div class="dropdown-item" (click)="onDropdownItemClick(item)">
-                    <input #dropdownCheckbox type="checkbox" [checked]="item.selected" />
+                    <input #dropdownCheckbox type="checkbox" [checked]="item.selected"/>
                     {{ item.text }}
                 </div>
             }

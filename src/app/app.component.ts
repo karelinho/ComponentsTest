@@ -30,21 +30,4 @@ export class AppComponent {
     { code: 'item2', text: 'Item 2' },
     { code: 'item3', text: 'Item 3' }
   ];
-  selectedDropdownItems: DropdownItem[] = [];
-  dropdownInputValue = '';
-
-  onDropdownItemClick(item: DropdownItem) {
-    const clickedItem: DropdownItem | undefined = this.selectedDropdownItems.find((value) => value.code === item.code);
-    if (!clickedItem){
-      this.selectedDropdownItems.push(item);
-      this.dropdownInputValue = this.stringyfyDropdownItems(this.selectedDropdownItems);
-    } else {
-      this.selectedDropdownItems = this.selectedDropdownItems.filter((value) => value.code !== item.code);
-      this.dropdownInputValue = this.stringyfyDropdownItems(this.selectedDropdownItems);
-    }
-  }
-
-  private stringyfyDropdownItems(items: DropdownItem[]): string {
-    return items.map((item) => item.text).join(', ');
-  }
 }

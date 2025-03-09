@@ -1,21 +1,16 @@
 
 .dropdown-content {
-    width: 14rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     padding: 0.5rem 0;
     background-color: white;
     border-radius: 6px;
     box-shadow: 0 10px 20px rgba(64, 64, 64, 0.15);
 }
 
-.dropdown-search {
-    display: flex;
-}
-
-.dropdown-search input {
-    margin: 0 10px;
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
+.dropdown-content input {
+    margin: 10px;
 }
 
 .dropdown-item {

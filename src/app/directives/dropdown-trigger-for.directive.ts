@@ -35,29 +35,31 @@ export class DropdownTriggerForDirective implements OnDestroy {
     }
 
     openDropdown(): void {
+        console.log('input width: ' + this.elementRef.nativeElement.clientWidth);
         this.isDropdownOpen = true;
         this.overlayRef = this.overlay.create({
-        hasBackdrop: true,
-        backdropClass: 'cdk-overlay-transparent-backdrop',
-        scrollStrategy: this.overlay.scrollStrategies.close(),
-        positionStrategy: this.overlay
-            .position()
-            .flexibleConnectedTo(this.elementRef)
-            .withPositions([
-                {
-                    originX: 'start',
-                    originY: 'bottom',
-                    overlayX: 'end',
-                    overlayY: 'top',
-                    offsetY: 8,
-                    offsetX: this.elementRef.nativeElement.offsetLeft
-                }
-            ])
+            hasBackdrop: true,
+            backdropClass: 'cdk-overlay-transparent-backdrop',
+            scrollStrategy: this.overlay.scrollStrategies.close(),
+            width: this.elementRef.nativeElement.offsetWidth + 'px',
+            positionStrategy: this.overlay
+                .position()
+                .flexibleConnectedTo(this.elementRef)
+                .withPositions([
+                    {
+                        originX: 'start',
+                        originY: 'bottom',
+                        overlayX: 'end',
+                        overlayY: 'top',
+                        offsetY: 8,
+                        offsetX: this.elementRef.nativeElement.offsetLeft
+                    }
+                ])
         });
-
+        
         const templatePortal = new TemplatePortal(
-        this.dropdownPanel.templateRef,
-        this.viewContainerRef
+            this.dropdownPanel.templateRef,
+            this.viewContainerRef
         );
         this.overlayRef.attach(templatePortal);
 
